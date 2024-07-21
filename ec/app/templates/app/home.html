@@ -1,0 +1,110 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner-slider %}
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/b1.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/images/banner/b2.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/images/banner/b3.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'app/images/banner/b4.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+    </div>
+  </div>
+{% endblock banner-slider %}
+
+{% block information %}
+<div class="container">
+    <div class="row bg-success text-center p-5 text-white border-bottom shadow">
+        <h1>Products</h1>
+        <small class="fs-5">
+            We are motivated to promote eco-friendly products which are helpful to save our mother earth 
+        </small>
+    </div>
+</div>
+{% endblock information %}
+
+{% block main-content %}
+    <div class="container">
+        <h2 class="text-center">Products</h2>
+        <br><br>
+        <div class="row container">
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                <div class="goodnesssec buttermilk smbg">
+                  <a href="{% url 'category' 'GC' %}">
+                    <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/Green_Compost-removebg-preview.png' %}" class="img-responsive center-block" alt="">
+                      <p class="mlkpro">Compost</p>
+                    </div>
+                  </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                <div class="goodnesssec buttermilk curdbgpro">
+                  <a href="{% url 'category' 'CB' %}">
+                    <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/Green_Carry_Bag-removebg-preview.png' %}" class="img-responsive center-block" alt="">
+                      <p class="mlkpro">Carry Bags</p>
+                    </div>
+                  </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                <div class="goodnesssec buttermilk buttermilk">
+                  <a href="{% url 'category' 'RC' %}">
+                    <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/Recycled_Cloth-removebg-preview.png' %}" class="img-responsive center-block" alt="">
+                      <p class="mlkpro">Cloth</p>
+                    </div>
+                  </a>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+
+        <div class="row container">
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                <div class="goodnesssec buttermilk smbg">
+                  <a href="{% url 'category' 'SP' %}">
+                    <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/Solar_Phone_Charger-removebg-preview.png' %}" class="img-responsive center-block" alt="">
+                      <p class="mlkpro">Charger</p>
+                    </div>
+                  </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                <div class="goodnesssec buttermilk curdbgpro">
+                  <a href="{% url 'category' 'UB' %}">
+                    <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/Reusable_Bottle-removebg-preview.png' %}" class="img-responsive center-block" alt="">
+                      <p class="mlkpro">Bottle</p>
+                    </div>
+                  </a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                <div class="goodnesssec buttermilk buttermilk">
+                  <a href="{% url 'category' 'BC' %}">
+                    <div class="goodnessseccont text-center">
+                      <img src="{% static 'app/images/product/Reusable_Bowl_Cover-removebg-preview.png' %}" class="img-responsive center-block" alt="">
+                      <p class="mlkpro">Cover</p>
+                    </div>
+                  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/><br/>
+{% endblock main-content %}
+
+

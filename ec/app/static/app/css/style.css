@@ -13,6 +13,10 @@
     padding-bottom:20px;
 }
 
+.img-thumbnail {
+    border-radius: 50%;
+}
+
 .smbg{
     background-color:#fff;
     background-image:linear-gradient(rgba(110, 69, 143, 0.1), #fff);

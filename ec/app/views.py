@@ -12,7 +12,6 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 # Create your views here.
-@login_required
 def home(request):
     totalitem = 0
     wishitem=0
@@ -231,7 +230,7 @@ class checkout(View):
             else:
                 shipping = 0
 
-        totalamount = famount + taxamount + shipping
+        totalamount = round((famount + taxamount + shipping),2)
 
         razoramount = int(totalamount * 100)
         client = razorpay.Client(auth=(settings.RAZOR_KEY_ID, settings.RAZOR_KEY_SECRET))
@@ -390,3 +389,23 @@ def search(request):
         wishitem = len(Wishlist.objects.filter(user=request.user))
     product = Product.objects.filter(Q(title__icontains=query))
     return render(request,"app/search.html",locals())
+
+@login_required
+def user_history(request):
+    user_history = request.session.get('user_history', {})
+    user_name = request.user.username
+    return render(request, 'app/user_history.html', {'user_history': user_history, 'user_name': user_name})
+
+
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        form = CustomerProfileForm(request.POST, request.FILES, instance=request.user.customer)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your profile has been updated successfully!')
+            return redirect('profile')
+    else:
+        form = CustomerProfileForm(instance=request.user.customer)
+
+    return render(request, 'app/profile.html', {'form': form})

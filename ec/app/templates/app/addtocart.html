@@ -36,26 +36,27 @@
    </div>
    </div>
   </div>
-
-  <div class="col-sm-4">
-   <div class="card">
-    <div class="card-body">
-      <h3>The Total Amount of</h3>
-      <ul class="list-group">
-       <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0" >Amount<span id="amount">${{amount}}</span></li>
-       <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0" >Tax (13%)<span id="amount">${{taxamount}}</span></li>
-       <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0" >Shipping ($2.99 for orders below $30)<span id="amount">${{shipping}}</span></li>
-       <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-        <div>
-           <strong>Total</strong> <small>(Including Tax)</small>
-         </div>
-         <span id="totalamount"><strong>{{totalamount}}</strong></span>
-       </li>
-      </ul>
-      <div class="d-grid"><a href="{% url 'checkout' %}" class="btn btn-primary">Place Order</a></div>
-    </div>
-   </div>
-  </div>
+     {% if amount > 0 %}
+      <div class="col-sm-4">
+       <div class="card">
+        <div class="card-body">
+          <h3>The Total Amount of</h3>
+          <ul class="list-group">
+           <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0" >Amount<span id="amount">${{amount}}</span></li>
+           <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0" >Tax (13%)<span id="taxamount">${{taxamount}}</span></li>
+           <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0" >Shipping ($2.99 for orders below $30)<span id="shipamount">${{shipping}}</span></li>
+           <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+            <div>
+               <strong>Total</strong> <small>(Including Tax)</small>
+             </div>
+             <span id="totalamount"><strong>{{totalamount}}</strong></span>
+           </li>
+          </ul>
+          <div class="d-grid"><a href="{% url 'checkout' %}" class="btn btn-primary">Place Order</a></div>
+        </div>
+       </div>
+      </div>
+     {% endif %}
   {% else %}
     <h1 class="text-center mb-5">Cart is Empty</h1>
 {% endif %}

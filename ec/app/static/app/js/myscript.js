@@ -15,6 +15,8 @@ $('.plus-cart').click(function(){
             eml.innerText=data.quantity 
             document.getElementById("amount").innerText=data.amount 
             document.getElementById("totalamount").innerText=data.totalamount
+            document.getElementById("taxamount").innerText=data.taxamount
+            document.getElementById("totalship").innerText=data.shipping
         }
     })
 })
@@ -33,6 +35,8 @@ $('.minus-cart').click(function(){
             eml.innerText=data.quantity 
             document.getElementById("amount").innerText=data.amount 
             document.getElementById("totalamount").innerText=data.totalamount
+            document.getElementById("taxamount").innerText=data.taxamount
+            document.getElementById("totalship").innerText=data.shipping
         }
     })
 })
@@ -49,7 +53,9 @@ $('.remove-cart').click(function(){
         success:function(data){
             document.getElementById("amount").innerText=data.amount 
             document.getElementById("totalamount").innerText=data.totalamount
-            eml.parentNode.parentNode.parentNode.parentNode.remove() 
+            document.getElementById("taxamount").innerText=data.taxamount
+            document.getElementById("shipamount").innerText=data.shipping
+            eml.parentNode.parentNode.parentNode.parentNode.remove()
         }
     })
 })
